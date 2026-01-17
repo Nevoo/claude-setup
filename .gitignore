@@ -1,0 +1,17 @@
+cache/*
+debug/*
+file-history/*
+ide/*
+old_agents/*
+paste-cache/*
+plans/*
+plugins/*
+projects/*
+session-env/*
+shell-snapshots/*
+statsig/*
+telemetry/*
+todos/*
+history.jsonl
+stats-cache.json
+.DS_STORE
