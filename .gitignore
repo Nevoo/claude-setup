@@ -1,17 +1,59 @@
-cache/*
-debug/*
-file-history/*
-ide/*
-old_agents/*
-paste-cache/*
-plans/*
-plugins/*
-projects/*
-session-env/*
-shell-snapshots/*
-statsig/*
-telemetry/*
-todos/*
+# === Reusable setup is tracked: agents/ skills/ hooks/ commands/ CLAUDE.md settings.json ===
+# Everything below is machine-local runtime state, caches, or secrets — never sync.
+
+# OS junk
+.DS_Store
+**/.DS_Store
+
+# Python build artifacts
+__pycache__/
+*.pyc
+
+# Nested per-dir local settings (Claude writes these)
+**/.claude/
+
+# Caches / runtime state
+cache/
+debug/
+file-history/
+ide/
+image-cache/
+old_agents/
+paste-cache/
+plans/
+plugins/
+projects/
+session-env/
+sessions/
+shell-snapshots/
+statsig/
+telemetry/
+todos/
+tasks/
+jobs/
+backups/
+chrome/
+daemon/
+
+# Archived (deprecated) skills — not part of the reusable set
+skills-archive/
+
+# Auth / daemon / status files (may hold tokens or local-only state)
+.anthropic/
+daemon.log
+daemon.lock
+daemon.status.json
+daemon-auth-status.json
+daemon-auth-cooldown
+mcp-needs-auth-cache.json
+.last-cleanup
+.last-update-result.json
+
+# Session history / stats
 history.jsonl
 stats-cache.json
-.DS_STORE
+
+# Local + backup settings (machine-specific / secrets)
+settings.local.json
+settings.json.*backup*
+agents/.claude/

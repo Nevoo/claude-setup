@@ -1,8 +1,243 @@
 {
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
     "allow": [
-      "Bash(npm run compile:*)"
+      "Bash(ls:*)",
+      "Bash(ls)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(pwd)",
+      "Bash(which:*)",
+      "Bash(echo:*)",
+      "Bash(find:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(touch:*)",
+      "Bash(basename:*)",
+      "Bash(dirname:*)",
+      "Bash(realpath:*)",
+      "Bash(git status:*)",
+      "Bash(git status)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git diff)",
+      "Bash(git branch:*)",
+      "Bash(git branch)",
+      "Bash(git show:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(git remote:*)",
+      "Bash(bun:*)",
+      "Bash(npm:*)",
+      "Bash(dart:*)",
+      "Bash(flutter:*)",
+      "Read",
+      "Glob",
+      "Grep",
+      "ToolSearch",
+      "Agent",
+      "mcp__qmd__status",
+      "mcp__qmd__search",
+      "mcp__qmd__vsearch",
+      "mcp__qmd__get",
+      "mcp__qmd__multi_get",
+      "mcp__qmd__query"
+    ],
+    "deny": [
+      "Bash(bun install:*)",
+      "Bash(bun add:*)",
+      "Bash(bun remove:*)",
+      "Bash(npm install:*)",
+      "Bash(npm i :*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npx:*)",
+      "Bash(bunx:*)",
+      "Bash(dart pub add:*)",
+      "Bash(dart pub remove:*)",
+      "Bash(flutter pub add:*)",
+      "Bash(flutter pub remove:*)"
+    ],
+    "ask": [
+      "Bash(bun install)",
+      "Bash(npm install)",
+      "Bash(npm ci)",
+      "Bash(dart pub get)",
+      "Bash(flutter pub get)"
     ],
     "defaultMode": "default"
-  }
+  },
+  "model": "opus",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/dep-check.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/unprocessed-sources.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/rouven/Developer/personal/projects/tools/otterly/packages/cli/dist/otterly hook 2>/dev/null || true"
+          }
+        ]
+      },
+      {
+        "matcher": "resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/rouven/Developer/personal/projects/tools/otterly/packages/cli/dist/otterly hook 2>/dev/null || true"
+          }
+        ]
+      },
+      {
+        "matcher": "clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/rouven/Developer/personal/projects/tools/otterly/packages/cli/dist/otterly hook 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/voice-dna-lint.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/vault-autocommit.sh"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/rouven/Developer/personal/projects/tools/otterly/packages/cli/dist/otterly hook 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/rouven/Developer/personal/projects/tools/otterly/packages/cli/dist/otterly hook 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/rouven/Developer/personal/projects/tools/otterly/packages/cli/dist/otterly hook 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/rouven/Developer/personal/projects/tools/otterly/packages/cli/dist/otterly hook 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/rouven/Developer/personal/projects/tools/otterly/packages/cli/dist/otterly hook 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/rouven/Developer/personal/projects/tools/otterly/packages/cli/dist/otterly hook 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/rouven/Developer/personal/projects/tools/otterly/packages/cli/dist/otterly hook 2>/dev/null || true"
+          }
+        ]
+      },
+      {
+        "matcher": "agent_needs_input",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/rouven/Developer/personal/projects/tools/otterly/packages/cli/dist/otterly hook 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); current_dir=$(echo \"$input\" | jq -r '.workspace.current_dir'); model_name=$(echo \"$input\" | jq -r '.model.display_name'); used_pct=$(echo \"$input\" | jq -r '.context_window.used_percentage // empty'); dir_name=$(basename \"$current_dir\"); git_branch=\"\"; if git -C \"$current_dir\" rev-parse --git-dir > /dev/null 2>&1; then git_branch=$(git -C \"$current_dir\" --no-optional-locks branch --show-current 2>/dev/null); [ -n \"$git_branch\" ] && git_branch=\" on $(printf '\\033[35m')$git_branch$(printf '\\033[0m')\"; fi; context_info=\"\"; if [ -n \"$used_pct\" ]; then if (( $(echo \"$used_pct >= 80\" | bc -l 2>/dev/null || echo 0) )); then context_color=\"31\"; elif (( $(echo \"$used_pct >= 50\" | bc -l 2>/dev/null || echo 0) )); then context_color=\"33\"; else context_color=\"32\"; fi; context_info=\" | $(printf '\\033[')${context_color}m${used_pct}%$(printf '\\033[0m') used\"; fi; otter=$(printf '%s' \"$input\" | /Users/rouven/Developer/personal/projects/tools/otterly/packages/cli/dist/otterly statusline 2>/dev/null); printf '%s\\033[36m%s\\033[0m%s | \\033[34m%s\\033[0m%s' \"${otter:+$otter }\" \"$dir_name\" \"$git_branch\" \"$model_name\" \"$context_info\""
+  },
+  "enabledPlugins": {
+    "ralph-loop@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true
+  },
+  "spinnerVerbs": {
+    "mode": "append",
+    "verbs": [
+      "Cracking shells",
+      "Combing the kelp",
+      "Diving",
+      "Surfacing",
+      "Rafting up",
+      "Pebble-polishing",
+      "Floating downstream",
+      "Shucking"
+    ]
+  },
+  "effortLevel": "xhigh",
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "editorMode": "vim",
+  "agentPushNotifEnabled": true
 }
